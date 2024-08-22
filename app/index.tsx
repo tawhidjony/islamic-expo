@@ -1,16 +1,15 @@
 import Logo from '@/assets/images/onborder/caliography.svg';
 import { setItem } from '@/asyncStorage';
-import { useNavigation } from 'expo-router';
+import { router, useNavigation } from 'expo-router';
 import React from 'react';
 import Onboarding from 'react-native-onboarding-swiper';
 type Props = {}
 
 const OnBoardScreen = (props: Props) => {
   const navigation = useNavigation()
-
   const handleSubmit = async () => {
     await setItem('onboarded', '1')
-    navigation.navigate('(tabs)')
+    router.push('/(tabs)')
   }
   return (
     <Onboarding
